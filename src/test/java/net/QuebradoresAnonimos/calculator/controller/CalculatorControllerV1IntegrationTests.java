@@ -57,5 +57,148 @@ public class CalculatorControllerV1IntegrationTests {
             assertThat(productMax.getPrice(), is(90.00));
         }
 
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade de 100 até 999 ENTÃO preço do produto com desconto é $95")
+        void whenProductIsPrice100AndClientTypeIsAAndQuantityGreaterEqualsTo100LessThen1000THENProductPrice95 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 100;
+            Integer quantityMax = 999;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(95.00));
+            assertThat(productMax.getPrice(), is(95.00));
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade maior ou igual a 1000  ENTÃO preço do produto com desconto é $100")
+        void whenProductIsPrice100AndClientTypeIsAAndQuantityGreaterEqualsTo1000THENProductPrice100 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 1000;
+            Integer quantityMax = 1001;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(100.00));
+            assertThat(productMax.getPrice(), is(100.00));
+        }
+
+    }
+    @Nested
+    @DisplayName("Quando o Cliente é do tipo 'B'")
+    class ClientTypeB {
+
+        @BeforeEach
+        void setup() {
+            clientType = "B";
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade de 1 até 99 ENTÃO preço do produto com desconto é $85")
+        void whenProductIsPrice100AndClientTypeIsBAndQuantityGreaterEqualsTo1LessThen100THENProductPrice85 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 1;
+            Integer quantityMax = 99;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(85.00));
+            assertThat(productMax.getPrice(), is(85.00));
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade de 100 até 999 ENTÃO preço do produto com desconto é $90")
+        void whenProductIsPrice100AndClientTypeIsBAndQuantityGreaterEqualsTo100LessThen1000THENProductPrice90 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 100;
+            Integer quantityMax = 999;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(90.00));
+            assertThat(productMax.getPrice(), is(90.00));
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade maior ou igual a 1000  ENTÃO preço do produto com desconto é $95")
+        void whenProductIsPrice100AndClientTypeIsBAndQuantityGreaterEqualsTo1000THENProductPrice95 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 1000;
+            Integer quantityMax = 1001;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(95.00));
+            assertThat(productMax.getPrice(), is(95.00));
+        }
+
+
+    }
+
+    @Nested
+    @DisplayName("Quando o Cliente é do tipo 'C'")
+    class ClientTypeC {
+
+        @BeforeEach
+        void setup() {
+            clientType = "C";
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade de 1 até 99 ENTÃO preço do produto com desconto é $80")
+        void whenProductIsPrice100AndClientTypeIsCAndQuantityGreaterEqualsTo1LessThen100THENProductPrice80 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 1;
+            Integer quantityMax = 99;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(80.00));
+            assertThat(productMax.getPrice(), is(80.00));
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade de 100 até 999 ENTÃO preço do produto com desconto é $85")
+        void whenProductIsPrice100AndClientTypeIsCAndQuantityGreaterEqualsTo100LessThen1000THENProductPrice85 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 100;
+            Integer quantityMax = 999;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(85.00));
+            assertThat(productMax.getPrice(), is(85.00));
+        }
+
+        @Test
+        @DisplayName("E preço do produto é $100 E quantidade maior ou igual a 1000  ENTÃO preço do produto com desconto é $90")
+        void whenProductIsPrice100AndClientTypeIsCAndQuantityGreaterEqualsTo1000THENProductPrice90 () {
+            // AAA Pattern => Arrange, then Act, finally Assert
+            /* Arrange */
+            Integer quantityMin = 1000;
+            Integer quantityMax = 1001;
+            /* Act */
+            Product productMin = driver.getProductWithDiscount(1L, clientType, quantityMin);
+            Product productMax = driver.getProductWithDiscount(2L, clientType, quantityMax);
+            /* Assert */
+            assertThat(productMin.getPrice(), is(90.00));
+            assertThat(productMax.getPrice(), is(90.00));
+        }
+
+
     }
 }

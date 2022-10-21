@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(
-        value = "/calculator/v1",
+        value = "/calculatorDiscount/v1",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class CalculatorControllerV1 {

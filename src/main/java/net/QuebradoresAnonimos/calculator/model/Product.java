@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 
-    @javax.persistence.Id
+    @Id
     private long Id;
 
     private Double price;

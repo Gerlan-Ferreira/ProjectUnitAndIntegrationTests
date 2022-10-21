@@ -64,10 +64,13 @@ public class DiscountFactorCalculationServiceUnitTests {
         @DisplayName("E Quantidade maior ou igual a 1000 ENTAO Desconto é 0%")
         public void whenClientTypeAQuantityGreaterEqual1000THENDiscount0Percent(){
             quantityMin = 1000;
+            quantityMax = 1001;
 
             Double resultMin = driver.calculate(clientType, quantityMin);
+            Double resultMax = driver.calculate(clientType, quantityMax);
 
-            assertThat(resultMin, is(1.0));
+            assertThat(resultMin, is(1.00));
+            assertThat(resultMax, is(1.00));
         }
     }
 
@@ -83,7 +86,7 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade entre 1 e 99 ENTÃO o desconto é 15%")
-        public void whenClientAQuantityLessThen100ThenDiscount10Percent(){
+        public void whenClientBQuantityLessThen100ThenDiscount10Percent(){
             //AAA Pattern => Arrange, then Act, finally Assert
 
 
@@ -104,7 +107,7 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade entre 100 e 999 ENTÃO o desconto é 10%")
-        public void whenClientAQuantityGreater100AndQuantityLower1000THENDiscount5Percent(){
+        public void whenClientBQuantityGreater100AndQuantityLower1000THENDiscount5Percent(){
             quantityMin = 100;
             quantityMax = 999;
 
@@ -117,12 +120,15 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade maior ou igual a 1000 ENTAO desconto é 5%")
-        public void whenClientTypeAQuantityGreaterEqual1000THENDiscount0Percent(){
+        public void whenClientTypeBQuantityGreaterEqual1000THENDiscount0Percent(){
             quantityMin = 1000;
+            quantityMax = 1001;
 
             Double resultMin = driver.calculate(clientType, quantityMin);
+            Double resultMax = driver.calculate(clientType, quantityMax);
 
             assertThat(resultMin, is(0.95));
+            assertThat(resultMax, is(0.95));
         }
     }
 
@@ -138,7 +144,7 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade entre 1 e 99 ENTÃO o desconto é 20 %")
-        public void whenClientAQuantityLessThen100ThenDiscount10Percent(){
+        public void whenClientCQuantityLessThen100ThenDiscount10Percent(){
             //AAA Pattern => Arrange, then Act, finally Assert
 
 
@@ -159,7 +165,7 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade entre 100 e 999 ENTÃO o desconto é 15%")
-        public void whenClientAQuantityGreater100AndQuantityLower1000THENDiscount5Percent(){
+        public void whenClientCQuantityGreater100AndQuantityLower1000THENDiscount5Percent(){
             quantityMin = 100;
             quantityMax = 999;
 
@@ -172,12 +178,15 @@ public class DiscountFactorCalculationServiceUnitTests {
 
         @Test
         @DisplayName("E Quantidade maior ou igual a 1000 ENTAO desconto é 10%")
-        public void whenClientTypeAQuantityGreaterEqual1000THENDiscount0Percent(){
+        public void whenClientTypeCQuantityGreaterEqual1000THENDiscount0Percent(){
             quantityMin = 1000;
+            quantityMax = 1001;
 
             Double resultMin = driver.calculate(clientType, quantityMin);
+            Double resultMax = driver.calculate(clientType, quantityMax);
 
             assertThat(resultMin, is(0.90));
+            assertThat(resultMax, is(0.90));
         }
     }
 
